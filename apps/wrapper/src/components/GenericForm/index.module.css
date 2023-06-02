@@ -7,6 +7,7 @@
     width: 100vw;
     padding-bottom: 2rem;
     position: relative;
+    overflow: hidden;
 }
 
 .header {
@@ -138,3 +139,34 @@ input:checked+.slider:before {
 .imageLinks a {
     color:#fff;
 }
+
+.copyButton {
+    align-items: center;
+    background-color: initial;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: inherit;
+    text-transform: uppercase;
+    font-family: inherit;
+    gap: 2px;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    outline: none;
+    position: absolute;
+    right: 4.5rem;
+    top: 0.3rem;
+    transition: color .3s;
+    z-index: 1;
+  }
+  
+  .copyButton:hover {
+    filter: opacity(0.8);
+  }
+  
+  .copied {
+    display: none;
+  }
+  
