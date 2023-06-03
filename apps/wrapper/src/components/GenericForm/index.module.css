@@ -137,7 +137,7 @@ input:checked+.slider:before {
 }
 
 .imageLinks a {
-    color:#fff;
+    color: #fff;
 }
 
 .copyButton {
@@ -160,13 +160,52 @@ input:checked+.slider:before {
     top: 0.3rem;
     transition: color .3s;
     z-index: 1;
-  }
-  
-  .copyButton:hover {
+}
+
+.copyButton:hover {
     filter: opacity(0.8);
-  }
-  
-  .copied {
+}
+
+.copied {
     display: none;
-  }
-  
+}
+
+@media screen and (max-width: 600px) {
+   
+
+    .header {
+        font-size: 2.5rem;
+        justify-content: center;
+        margin: 0.5rem auto;
+        text-align: center;
+        flex-wrap: wrap-reverse;
+        width: 100%;
+    }
+
+    .back {
+        font-size: 2rem;
+    }
+
+    .odkForm {
+        width: 95%;
+        margin: auto;
+        height: 100%;
+    }
+
+    .formContainer {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .jsonResponse {
+        width: 95%;
+        margin: auto;
+    }
+
+    .subDetails {
+        font-size: 1.2rem!important;
+        text-align: center;
+        margin: 2px auto;
+    }
+}
