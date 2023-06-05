@@ -116,7 +116,7 @@ const GenericForm = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.header + ' animate__animated animate__slideInLeft animate__faster'}>
-        <div onClick={() => setSelectedFlow({})}>Go Back</div>
+        <div onClick={() => setSelectedFlow({})} className={styles.back} >Go Back</div>
         <div>Workflow /{selectedFlow.name}</div>
       </div>
       {Object.keys(fileUrls)?.length > 0 && <div className={styles.imageLinks}>
@@ -125,10 +125,10 @@ const GenericForm = (props) => {
       </div>
       }
       {
-        selectedFlow.offline && <p className='animate__animated animate__fadeIn' style={{ color: '#fff', fontSize: '1.5rem' }}>Disable internet and try submitting the form</p>
+        selectedFlow.offline && <p className={`${styles.subDetails} animate__animated animate__fadeIn`}  style={{ color: '#fff', fontSize: '1.5rem' }}>Disable internet and try submitting the form</p>
       }
       {
-        selectedFlow.submitToHasura && <p className='animate__animated animate__fadeIn' style={{ color: '#fff', fontSize: '1.5rem' }}>Submit the form and check <a style={{ color: '#ffc119' }} target="_blank" href={`${HASURA_URL}`}>Hasura</a></p>
+        selectedFlow.submitToHasura && <p className={`${styles.subDetails} animate__animated animate__fadeIn`}  style={{ color: '#fff', fontSize: '1.5rem' }}>Submit the form and check <a style={{ color: '#ffc119' }} target="_blank" href={`${HASURA_URL}`}>Hasura</a></p>
       }
       <div className={styles.formContainer}>
         <iframe title='current-form'

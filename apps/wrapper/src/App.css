@@ -48,3 +48,29 @@
   transform: translateY(-5px);
   box-shadow: #ffc119 0px 30px 60px -6px, #ffc119 0px 18px 36px -9px;
 }
+
+@media screen and (max-width: 600px) {
+  .btnContainer {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 98%;
+  }
+
+  .container {
+    min-height: 100vh;
+    height: 100%;
+  }
+
+  .heading {
+    font-size: 3rem;
+    width: 80%;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+}
