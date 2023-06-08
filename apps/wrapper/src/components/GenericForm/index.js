@@ -21,6 +21,10 @@ const GenericForm = (props) => {
   const encodeFunction = (func) => {
     return encodeURIComponent(JSON.stringify(func));
   }
+  const [isDarkMode, setIsDarkMode] = useState(
+    () => JSON.parse(sessionStorage.getItem('theme')) ?? true
+  );
+
 
   const startingForm = formSpec.startingForm;
   const [fileUrls, setFileUrls] = useState({});
@@ -114,8 +118,8 @@ const GenericForm = (props) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header + ' animate__animated animate__slideInLeft animate__faster'}>
+    <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
+      <div className={`${styles.header} animate__animated animate__slideInLeft animate__faster`}>
         <div onClick={() => setSelectedFlow({})} className={styles.back} >Go Back</div>
         <div>Workflow /{selectedFlow.name}</div>
       </div>
@@ -125,10 +129,10 @@ const GenericForm = (props) => {
       </div>
       }
       {
-        selectedFlow.offline && <p className={`${styles.subDetails} animate__animated animate__fadeIn`}  style={{ color: '#fff', fontSize: '1.5rem' }}>Disable internet and try submitting the form</p>
+        selectedFlow.offline && <p className={`${styles.subDetails} animate__animated animate__fadeIn`}  style={{  fontSize: '1.5rem' }}>Disable internet and try submitting the form</p>
       }
       {
-        selectedFlow.submitToHasura && <p className={`${styles.subDetails} animate__animated animate__fadeIn`}  style={{ color: '#fff', fontSize: '1.5rem' }}>Submit the form and check <a style={{ color: '#ffc119' }} target="_blank" href={`${HASURA_URL}`}>Hasura</a></p>
+        selectedFlow.submitToHasura && <p className={`${styles.subDetails} animate__animated animate__fadeIn`}  style={{  fontSize: '1.5rem' }}>Submit the form and check <a style={{ color: '#ffc119' }} target="_blank" href={`${HASURA_URL}`}>Hasura</a></p>
       }
       <div className={styles.formContainer}>
         <iframe title='current-form'
@@ -145,9 +149,9 @@ const GenericForm = (props) => {
             {isCopied && <span className={styles.copyButton}><i className="fas fa-check"></i>Copied</span>}
           </div>
           <div className={styles.toggleBtn}>
-            <label class={styles.switch}>
+            <label className={styles.switch}>
               <input type="checkbox" value={isXml} onChange={e => handleFormView(e.target.checked)} />
-              <span class={styles.slider}></span>
+              <span className={styles.slider}></span>
             </label>
             {isXml ? <span className='animate__animated animate__fadeIn'>XML</span> : <span className='animate__animated animate__fadeIn'>JSON</span>}
           </div>
