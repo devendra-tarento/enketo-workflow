@@ -124,7 +124,7 @@ color:var(--text-secondary);
 }
 
 input:checked + .slider {
-  background-color: var(--button-hover-background);
+  background-color: var(--text);
 }
 
 input:focus + .slider {

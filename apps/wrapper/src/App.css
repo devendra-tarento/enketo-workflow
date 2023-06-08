@@ -52,7 +52,7 @@
 .toggleButtonContainer {
   position: fixed;
   bottom: 0;
-  left: 12px;
+  right: 12px;
   color: var(--toggle-button-color);
 }
 .toggle-btn{
