@@ -56,7 +56,9 @@
   color: var(--toggle-button-color);
 }
 .toggle-btn{
-  font-size: 40px;
+  font-size: 35px;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }
 @media screen and (max-width: 600px) {
   .btnContainer {
