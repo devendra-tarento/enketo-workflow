@@ -151,7 +151,18 @@ export class FormController {
 
     async processForm(formData, formFiles) {
         const doc = this._parser.parseFromString(formData, 'text/xml');
-        console.log("form DATA ND FILES:", formData, formFiles)
+        
+        // Uploading images to Minio and replacing in formData
+        for (let i = 0; i < formFiles.length; i++) {
+            let minioUri = await this.uploadFile(formFiles[i]);
+            console.log(minioUri, formFiles[i].name);
+            if (minioUri) {
+                formData = formData.replace(formFiles[i].name, minioUri);
+            }
+        }
+
+        console.log("Updated FormData:", formData);
+
         const parseRes = await fetch(`${settings.formManagerBaseURI}/parse`, {
             method: "POST",
             body: JSON.stringify({ xml: formData.toString() }),
