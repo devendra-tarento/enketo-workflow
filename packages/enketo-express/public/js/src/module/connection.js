@@ -156,7 +156,8 @@ async function _uploadBatch(recordBatch, record) {
         return document.querySelector(`meta[name=${metaName}]`).content;
     }
 
-    const formSpec = getMeta('formSpec');
+    // const formSpec = getMeta('formSpec') ;
+    const formSpec = `{ "skipOnSuccessMessage": true, "prefill": {}, "submissionURL": "http://esamwad.samagra.io/api/v4/form/submit", "name": "SampleForm", "successCheck": "async (formData) => { console.log(formData); }", "onSuccess": { "notificationMessage": "Form submitted successfully or not Maybe", "sideEffect": "async (formData) => { console.log(formData); }", "next": { "type": "form", "id": "form2" } }, "onFailure": { "message": "Form submission failed", "sideEffect": "async (formData) => { console.log(formData); }", "next": { "type": "url", "id": "google" } } }` ;
     const formController = new FormController(JSON.parse(formSpec));
     const response = await formController.processForm(record.xml, record.files);
     // TODO: transforrm the form response

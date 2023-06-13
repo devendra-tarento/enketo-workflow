@@ -151,6 +151,7 @@ export class FormController {
 
     async processForm(formData, formFiles) {
         const doc = this._parser.parseFromString(formData, 'text/xml');
+        console.log("form DATA ND FILES:", formData, formFiles)
         const parseRes = await fetch(`${settings.formManagerBaseURI}/parse`, {
             method: "POST",
             body: JSON.stringify({ xml: formData.toString() }),
